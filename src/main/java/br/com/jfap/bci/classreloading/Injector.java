@@ -41,16 +41,6 @@ public class Injector implements java.lang.instrument.ClassFileTransformer {
 			return this.workClassCanonicalName;
 		}
 
-/*		private void loadClazz() {
-			try {
-				Class<? extends Object> c = Class.forName(clazz);
-				c.newInstance();
-			} catch ( Throwable t ) {
-				t.printStackTrace();
-			}
-		}
-		*/
-		
 		/**
 		 * 
 		 * @param methodName The name of the method that must be modified via byte code injection 
@@ -138,8 +128,6 @@ public class Injector implements java.lang.instrument.ClassFileTransformer {
 							this.constructor =  getConstructor(convertClassToCtClassArray(((RewriteConstructor) a).params()));
 							System.out.println("invoking Constructor: " + annotatedMethod.getName() + " TargetConstructorName: " + this.constructor.getName());
 							annotatedMethod.invoke(this);
-							//loader.reload(getCanonicalName(), this.workClass.toBytecode());
-							//this.workClass.defrost();
 							System.out.println("Class: " + getCanonicalName() + " Constructor: " + constructor.getName() + " has been reloaded");
 						} catch (Exception e) {
 							e.printStackTrace();
