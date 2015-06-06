@@ -41,3 +41,5 @@ java -javaagent:/tmp/jfapAgent.jar TestClass
 
 When you run the command line above you will get the "Modified Method Body" printed on the screen. If you take off the "-javaagent:/tmp/jfapAgent.jar" from the command line, it would print "Original Method Body".
 
+It also works well for web applications that run inside a Servlet Container. In this case, you need to add the javaagent parameter in the virtual machine used by the container.
+
