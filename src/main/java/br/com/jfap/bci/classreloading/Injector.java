@@ -136,7 +136,7 @@ public class Injector implements java.lang.instrument.ClassFileTransformer {
 		byte[] byteCode = classfileBuffer;
 
 		try {
-			if ( className.equalsIgnoreCase(this.workClassCanonicalName) ) {
+			if ( className.equalsIgnoreCase(this.workClassCanonicalName.replaceAll("/", ".")) ) {
 				log.debug("className: " + className);
 				log.debug("this.clazz: " + this.workClassCanonicalName);
 				setWorkClass();
